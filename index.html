@@ -28,7 +28,7 @@
       margin: 0 auto;
       background-color: #fff;
       padding: 1rem 2rem;
-      border-radius: 2rem;
+      border-radius: 3rem; /* Mere rund navigation */
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
@@ -197,8 +197,21 @@
       color: #dcdcdc;
       font-size: 0.9rem;
     }
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="logo">
@@ -213,12 +226,12 @@
     <a href="#contact" class="btn">Book et møde</a>
   </header>
 
-  <section class="about">
+  <section class="about fade-in">
     <h2>Om Klicks</h2>
     <p>Klicks er et strategisk marketingbureau drevet af Joachim og Victor. Vi hjælper virksomheder med at skille sig ud digitalt gennem målrettede kampagner, branding og content. Vi kombinerer kreativitet med skarp strategi.</p>
   </section>
 
-  <section class="services">
+  <section class="services fade-in">
     <h2>Ydelser</h2>
     <ul>
       <li>Sociale medier: Strategi, annoncering og indhold</li>
@@ -228,12 +241,12 @@
     </ul>
   </section>
 
-  <section class="projects">
+  <section class="projects fade-in">
     <h2>Cases & Referencer</h2>
     <p>Vi har hjulpet både startups og veletablerede brands med at opnå synlighed og resultater. Kontakt os for at få konkrete eksempler på vores arbejde.</p>
   </section>
 
-  <section id="contact" class="contact-section">
+  <section id="contact" class="contact-section fade-in">
     <div class="contact-info">
       <h2>Kontakt os</h2>
       <p>
@@ -270,5 +283,26 @@
   <footer>
     &copy; 2025 Klicks. Alle rettigheder forbeholdes.
   </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>
