@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <style>
     html {
-      scroll-behavior: smooth; /* Smooth scroll aktiveret */
+      scroll-behavior: smooth;
     }
 
     * {
@@ -21,14 +21,29 @@
       background-color: #fdfdfd;
       color: #111;
       line-height: 1.6;
+      position: relative;
+    }
+
+    /* Baggrundsbillede for hele toppen */
+    .top-background {
+      background-image: url('header1.png'); /* Sørg for at uploade header1.png */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      min-height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     nav {
       width: 90%;
       margin: 0 auto;
-      background-color: #fff;
+      background-color: #fff; /* Topbaren er hvid */
       padding: 1rem 2rem;
-      border-radius: 3rem; /* Mere rund navigation */
+      border-radius: 3rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
@@ -40,9 +55,15 @@
       z-index: 1000;
     }
 
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+
     nav .logo img {
       height: 50px;
       object-fit: contain;
+      display: block;
     }
 
     .nav-btn {
@@ -61,10 +82,7 @@
     }
 
     header {
-      background-color: #0a2540;
-      background-image: url('https://www.transparenttextures.com/patterns/symphony.png');
-      color: white;
-      padding: 10rem 2rem 4rem;
+      padding: 14rem 2rem 4rem;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -76,13 +94,14 @@
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1rem;
+      color: white;
     }
 
     header h2 {
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 2rem;
-      color: #cdd7e0;
+      color: #e0e0e0;
     }
 
     .btn {
@@ -131,7 +150,6 @@
       border-radius: 0.5rem;
     }
 
-    /* Kontaktsektion styling */
     .contact-section {
       background: #0a2540;
       color: white;
@@ -198,7 +216,7 @@
       font-size: 0.9rem;
     }
 
-    /* Fade-in Animation */
+    /* Fade-in animation */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -209,21 +227,40 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Pulse animation */
+    .pulse {
+      animation: pulseAnimation 2s infinite;
+    }
+
+    @keyframes pulseAnimation {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 
 <body>
+  <div class="top-background"></div>
+
   <nav>
     <div class="logo">
       <img src="logo.png" alt="Klicks logo">
     </div>
-    <a href="#contact" class="nav-btn">Kontakt os</a>
+    <a href="#contact" class="nav-btn pulse">Kontakt os</a>
   </nav>
 
   <header>
     <h1>Skab stærkere kampagner</h1>
     <h2>Strategisk & kreativ marketing – leveret af Klicks</h2>
-    <a href="#contact" class="btn">Book et møde</a>
+    <a href="#contact" class="btn pulse">Book et møde</a>
   </header>
 
   <section class="about fade-in">
