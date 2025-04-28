@@ -6,6 +6,10 @@
   <title>Klicks | Strategisk Marketing</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth; /* 👈 Smooth scroll aktiveret */
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -94,7 +98,7 @@
       color: #0a2540;
     }
 
-    .about, .services, .projects, .contact {
+    .about, .services, .projects {
       margin-bottom: 3rem;
     }
 
@@ -112,19 +116,63 @@
       border-radius: 0.5rem;
     }
 
-    .contact p {
+    /* Kontaktsektion styling */
+    .contact-section {
+      background: #0a2540;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 5rem 5vw;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-info p {
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
-    .contact img {
+    .contact-info img {
       width: 80px;
       height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #0a2540;
+      border: 2px solid #fff;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input {
+      padding: 1rem;
+      border: none;
+      border-radius: 2rem;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      padding: 1rem;
+      background: white;
+      color: #0a2540;
+      border: none;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #e6e6e6;
     }
 
     footer {
@@ -169,16 +217,38 @@
     <p>Vi har hjulpet både startups og veletablerede brands med at opnå synlighed og resultater. Kontakt os for at få konkrete eksempler på vores arbejde.</p>
   </section>
 
-  <section class="contact" id="contact">
-    <h2>Kontakt os</h2>
-    <p>
-      <img src="joachim.png" alt="Joachim Bisgaard">
-      <span><strong>Joachim</strong> – Marketingkonsulent<br>Email: <a href="mailto:Joachim@Klicks.dk">Joachim@Klicks.dk</a></span>
-    </p>
-    <p>
-      <img src="victor.png" alt="Victor Fejrskov">
-      <span><strong>Victor</strong> – Salg & kontakt<br>Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></span>
-    </p>
+  <section id="contact" class="contact-section">
+    <div class="contact-info">
+      <h2>Kontakt os</h2>
+      <p>
+        <img src="joachim.png" alt="Joachim Bisgaard">
+        <span>
+          <strong>Joachim Bisgaard</strong><br>
+          Marketingkonsulent<br>
+          Tlf: <a href="tel:+4540402721" style="color:white;">+45 40 40 27 21</a><br>
+          Email: <a href="mailto:Joachim@Klicks.dk" style="color:white;">Joachim@Klicks.dk</a>
+        </span>
+      </p>
+      <p>
+        <img src="victor.png" alt="Victor Fejrskov">
+        <span>
+          <strong>Victor Fejrskov</strong><br>
+          Salg & kontakt<br>
+          Tlf: <a href="tel:+4541698247" style="color:white;">+45 41 69 82 47</a><br>
+          Email: <a href="mailto:Victor@Klicks.dk" style="color:white;">Victor@Klicks.dk</a>
+        </span>
+      </p>
+    </div>
+
+    <div class="contact-form">
+      <h2>Indsend oplysninger</h2>
+      <form>
+        <input type="text" placeholder="Fulde navn" required>
+        <input type="text" placeholder="Jobtitel" required>
+        <input type="text" placeholder="Virksomhedsnavn" required>
+        <button type="submit">Indsend oplysninger</button>
+      </form>
+    </div>
   </section>
 
   <footer>
