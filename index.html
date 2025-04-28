@@ -123,6 +123,7 @@
       padding: 1.2rem;
       border-radius: 0.5rem;
     }
+
     /* Partners sektion */
     .partners {
       padding: 6rem 2rem;
@@ -138,11 +139,11 @@
     }
     .logos-slide {
       display: flex;
-      width: calc(250px * 14);
-      animation: scroll 20s linear infinite; /* Hurtigere scroll */
+      width: max-content;
+      animation: scroll 20s linear infinite;
     }
     .logos-slide img {
-      height: 100px;
+      height: 70px; /* 👈 Mindre logoer */
       width: auto;
       margin: 0 2rem;
       object-fit: contain;
@@ -156,7 +157,7 @@
       content: '';
       position: absolute;
       top: 0;
-      width: 100px;
+      width: 200px; /* 👈 Større fadeområde */
       height: 100%;
       background: linear-gradient(to right, #fff, transparent);
       z-index: 2;
@@ -168,6 +169,7 @@
     .partners::before {
       left: 0;
     }
+
     .contact-section {
       background: #0a2540;
       color: white;
@@ -225,6 +227,7 @@
       color: #dcdcdc;
       font-size: 0.9rem;
     }
+
     /* Fade-in animation */
     .fade-in {
       opacity: 0;
@@ -235,6 +238,7 @@
       opacity: 1;
       transform: translateY(0);
     }
+
     /* Pulse animation kun ved hover */
     .pulse {
       transition: transform 0.3s ease;
@@ -278,8 +282,10 @@
         <img src="logo8.png" alt="Logo 8">
         <img src="logo9.png" alt="Logo 9">
         <img src="logo10.png" alt="Logo 10">
+        <!-- gentag for perfekt loop -->
         <img src="logo1.png" alt="Logo 1">
         <img src="logo2.png" alt="Logo 2">
+        <img src="logo3.png" alt="Logo 3">
       </div>
     </div>
   </section>
@@ -307,22 +313,19 @@
   <section id="contact" class="contact-section fade-in">
     <div class="contact-info">
       <h2>Kontakt os</h2>
-      <p>
-        <img src="joachim.png" alt="Joachim Bisgaard">
+      <p><img src="joachim.png" alt="Joachim Bisgaard">
         <span><strong>Joachim Bisgaard</strong><br>
         Marketingkonsulent<br>
         Tlf: <a href="tel:+4540402721" style="color:white;">+45 40 40 27 21</a><br>
         Email: <a href="mailto:Joachim@Klicks.dk" style="color:white;">Joachim@Klicks.dk</a></span>
       </p>
-      <p>
-        <img src="victor.png" alt="Victor Fejrskov">
+      <p><img src="victor.png" alt="Victor Fejrskov">
         <span><strong>Victor Fejrskov</strong><br>
         Salg & kontakt<br>
         Tlf: <a href="tel:+4541698247" style="color:white;">+45 41 69 82 47</a><br>
         Email: <a href="mailto:Victor@Klicks.dk" style="color:white;">Victor@Klicks.dk</a></span>
       </p>
     </div>
-
     <div class="contact-form">
       <h2>Indsend oplysninger</h2>
       <form>
