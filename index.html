@@ -19,10 +19,21 @@
       line-height: 1.6;
     }
 
+    body::before {
+      content: "";
+      background-color: #0a2540;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      z-index: -1;
+    }
+
     nav {
       width: 90%;
       margin: 1rem auto;
-      background-color: #0a2540;
+      background-color: #fff;
       padding: 1rem 2rem;
       border-radius: 2rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -130,7 +141,7 @@
 <body>
   <nav>
     <div class="logo">
-      <img src="/mnt/data/BUSINESS MASTERY (500 x 100 px) (7).png" alt="Klicks logo">
+      <img src="logo.png" alt="Klicks logo">
     </div>
   </nav>
 
@@ -163,11 +174,11 @@
   <section class="contact" id="contact">
     <h2>Kontakt os</h2>
     <p>
-      <img src="/mnt/data/2.png" alt="Joachim Bisgaard">
+      <img src="joachim.png" alt="Joachim Bisgaard">
       <span><strong>Joachim</strong> – Marketingkonsulent<br>Email: <a href="mailto:Joachim@Klicks.dk">Joachim@Klicks.dk</a></span>
     </p>
     <p>
-      <img src="/mnt/data/3.png" alt="Victor Fejrskov">
+      <img src="victor.png" alt="Victor Fejrskov">
       <span><strong>Victor</strong> – Salg & kontakt<br>Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></span>
     </p>
   </section>
