@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <style>
     html {
-      scroll-behavior: smooth; /* 👈 Smooth scroll aktiveret */
+      scroll-behavior: smooth; /* Smooth scroll aktiveret */
     }
 
     * {
@@ -45,11 +45,26 @@
       object-fit: contain;
     }
 
+    .nav-btn {
+      background-color: #0a2540;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .nav-btn:hover {
+      background-color: #1a3a66;
+    }
+
     header {
       background-color: #0a2540;
       background-image: url('https://www.transparenttextures.com/patterns/symphony.png');
       color: white;
-      padding: 12rem 2rem 8rem;
+      padding: 10rem 2rem 4rem;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -139,8 +154,8 @@
     }
 
     .contact-info img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #fff;
@@ -189,6 +204,7 @@
     <div class="logo">
       <img src="logo.png" alt="Klicks logo">
     </div>
+    <a href="#contact" class="nav-btn">Kontakt os</a>
   </nav>
 
   <header>
