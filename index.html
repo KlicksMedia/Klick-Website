@@ -22,7 +22,7 @@
     nav {
       width: 90%;
       margin: 1rem auto;
-      background-color: #fff;
+      background-color: #0a2540;
       padding: 1rem 2rem;
       border-radius: 2rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -33,10 +33,9 @@
       z-index: 10;
     }
 
-    nav .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #0a2540;
+    nav .logo img {
+      height: 50px;
+      object-fit: contain;
     }
 
     header {
@@ -105,7 +104,18 @@
     }
 
     .contact p {
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0a2540;
     }
 
     footer {
@@ -119,7 +129,9 @@
 </head>
 <body>
   <nav>
-    <div class="logo">Klicks</div>
+    <div class="logo">
+      <img src="/mnt/data/BUSINESS MASTERY (500 x 100 px) (7).png" alt="Klicks logo">
+    </div>
   </nav>
 
   <header>
@@ -150,8 +162,14 @@
 
   <section class="contact" id="contact">
     <h2>Kontakt os</h2>
-    <p><strong>Joachim</strong> – Marketingkonsulent<br>Email: <a href="mailto:Joachim@Klicks.dk">Joachim@Klicks.dk</a></p>
-    <p><strong>Victor</strong> – Salg & kontakt<br>Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></p>
+    <p>
+      <img src="/mnt/data/2.png" alt="Joachim Bisgaard">
+      <span><strong>Joachim</strong> – Marketingkonsulent<br>Email: <a href="mailto:Joachim@Klicks.dk">Joachim@Klicks.dk</a></span>
+    </p>
+    <p>
+      <img src="/mnt/data/3.png" alt="Victor Fejrskov">
+      <span><strong>Victor</strong> – Salg & kontakt<br>Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></span>
+    </p>
   </section>
 
   <footer>
