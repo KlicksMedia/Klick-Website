@@ -71,7 +71,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      padding: 14rem 2rem 6rem;
+      padding: 18rem 2rem 8rem; /* 👈 gjort headeren 25% højere */
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -112,7 +112,7 @@
     }
 
     section {
-      padding: 4rem 5vw;
+      padding: 6rem 5vw; /* 👈 gjort sektioner længere nede */
     }
 
     h2 {
@@ -315,12 +315,10 @@
 
   <script>
     const faders = document.querySelectorAll('.fade-in');
-
     const appearOptions = {
       threshold: 0.2,
       rootMargin: "0px 0px -50px 0px"
     };
-
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
