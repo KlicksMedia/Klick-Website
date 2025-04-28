@@ -21,27 +21,12 @@
       background-color: #fdfdfd;
       color: #111;
       line-height: 1.6;
-      position: relative;
-    }
-
-    /* Baggrundsbillede for hele toppen */
-    .top-background {
-      background-image: url('header1.png'); /* Sørg for at uploade header1.png */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-      min-height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
     }
 
     nav {
       width: 90%;
       margin: 0 auto;
-      background-color: #fff; /* Topbaren er hvid */
+      background-color: #fff;
       padding: 1rem 2rem;
       border-radius: 3rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -82,12 +67,17 @@
     }
 
     header {
-      padding: 14rem 2rem 4rem;
+      background-image: url('header1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 14rem 2rem 6rem;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
     header h1 {
@@ -112,9 +102,9 @@
       text-decoration: none;
       border-radius: 2rem;
       font-weight: 800;
-      transition: background 0.3s;
       font-size: 1.1rem;
       margin-top: 1rem;
+      transition: background 0.3s;
     }
 
     .btn:hover {
@@ -228,9 +218,13 @@
       transform: translateY(0);
     }
 
-    /* Pulse animation */
+    /* Pulse animation kun ved hover */
     .pulse {
-      animation: pulseAnimation 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .pulse:hover {
+      animation: pulseAnimation 1.5s infinite;
     }
 
     @keyframes pulseAnimation {
@@ -248,8 +242,6 @@
 </head>
 
 <body>
-  <div class="top-background"></div>
-
   <nav>
     <div class="logo">
       <img src="logo.png" alt="Klicks logo">
