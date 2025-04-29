@@ -50,10 +50,6 @@
       border-radius: 3rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
-    nav .logo {
-      display: flex;
-      align-items: center;
-    }
     nav .logo img {
       height: 50px;
       object-fit: contain;
@@ -73,7 +69,7 @@
       background-color: #1a3a66;
     }
 
-    /* Header med slideshow */
+    /* Header */
     header {
       background-color: #f9f9f6;
       padding: 12rem 5vw 6rem;
@@ -86,19 +82,17 @@
       flex: 1;
       min-width: 300px;
     }
-    .header-left h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
+    .header-left h1, .header-left h2 {
       color: #0a2540;
       text-align: left;
     }
+    .header-left h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
     .header-left h2 {
       font-size: 1.5rem;
-      font-weight: 800;
       margin-bottom: 2rem;
-      color: #0a2540;
-      text-align: left;
     }
     .header-left .btn {
       display: inline-block;
@@ -115,22 +109,23 @@
       background-color: #1a3a66;
     }
 
+    /* Slideshow */
     .header-right {
       flex: 1;
       min-width: 300px;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
       height: 500px;
+      position: relative;
     }
-    .slideshow {
+    .slideshow-container {
       position: relative;
       width: 200px;
       height: 355px;
       perspective: 1000px;
     }
-    .slideshow img {
+    .slideshow-container .slide-img {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -140,22 +135,103 @@
       opacity: 0;
       transform: scale(0.8);
     }
-    .slideshow img.active {
+    .slideshow-container .active {
       opacity: 1;
       transform: scale(1);
-      z-index: 2;
+      z-index: 3;
     }
-    .slideshow img.left,
-    .slideshow img.right {
+    .slideshow-container .left {
       opacity: 0.5;
       transform: scale(0.8) translateX(-150px);
-      z-index: 1;
+      z-index: 2;
     }
-    .slideshow img.right {
+    .slideshow-container .right {
+      opacity: 0.5;
       transform: scale(0.8) translateX(150px);
+      z-index: 2;
     }
 
-    /* Videre CSS kommer i næste besked... */
+    /* Sections */
+    section {
+      padding: 6rem 5vw;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #0a2540;
+      letter-spacing: 1px;
+    }
+    .services ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .services li {
+      background: #f2f6fa;
+      padding: 1.2rem;
+      border-radius: 0.5rem;
+    }
+
+    /* Kontakt */
+    .contact-section {
+      background: #f9f9f6;
+      color: #0a2540;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 5rem 5vw;
+    }
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+    .contact-info img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0a2540;
+    }
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input {
+      padding: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 2rem;
+      font-size: 1rem;
+    }
+    .contact-form button {
+      padding: 1rem;
+      background: #0a2540;
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #1a3a66;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0a2540;
+      color: #dcdcdc;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
@@ -174,39 +250,20 @@
       <a href="#contact" class="btn pulse">Book et møde</a>
     </div>
     <div class="header-right">
-      <div class="slideshow">
-        <img src="billede1.png" class="active" alt="Slide 1">
-        <img src="billede2.png" class="right" alt="Slide 2">
-        <img src="billede3.png" class="left" alt="Slide 3">
+      <div class="slideshow-container">
+        <img src="billede1.jpg" class="slide-img active" alt="Slide 1">
+        <img src="billede2.jpg" class="slide-img right" alt="Slide 2">
+        <img src="billede3.jpg" class="slide-img left" alt="Slide 3">
       </div>
     </div>
   </header>
 
-  <!-- Her fortsætter sektionerne -->
-  <section class="partners fade-in">
-    <h2>VI ARBEJDER BLANDT ANDET MED...</h2>
-    <div class="logos-container">
-      <div class="logos-slide">
-        <img src="logo1.png" alt="Logo 1">
-        <img src="logo2.png" alt="Logo 2">
-        <img src="logo3.png" alt="Logo 3">
-        <img src="logo4.png" alt="Logo 4">
-        <img src="logo5.png" alt="Logo 5">
-        <img src="logo6.png" alt="Logo 6">
-        <img src="logo7.png" alt="Logo 7">
-        <img src="logo8.png" alt="Logo 8">
-        <img src="logo9.png" alt="Logo 9">
-        <img src="logo10.png" alt="Logo 10">
-      </div>
-    </div>
-  </section>
-
-  <section class="about fade-in">
+  <section class="about">
     <h2>Om Klicks</h2>
     <p>Klicks er et strategisk marketingbureau drevet af Joachim og Victor. Vi hjælper virksomheder med at skille sig ud digitalt gennem målrettede kampagner, branding og content. Vi kombinerer kreativitet med skarp strategi.</p>
   </section>
 
-  <section class="services fade-in">
+  <section class="services">
     <h2>Ydelser</h2>
     <ul>
       <li>Sociale medier: Strategi, annoncering og indhold</li>
@@ -216,21 +273,23 @@
     </ul>
   </section>
 
-  <section class="projects fade-in">
+  <section class="projects">
     <h2>Cases & Referencer</h2>
     <p>Vi har hjulpet både startups og etablerede brands med at opnå synlighed og stærke resultater. Kontakt os for at få konkrete eksempler på vores arbejde.</p>
   </section>
 
-  <section id="contact" class="contact-section fade-in">
+  <section id="contact" class="contact-section">
     <div class="contact-info">
       <h2>Kontakt os</h2>
-      <p><img src="joachim.png" alt="Joachim Bisgaard">
+      <p>
+        <img src="joachim.png" alt="Joachim Bisgaard">
         <span><strong>Joachim Bisgaard</strong><br>
         Marketingkonsulent<br>
         Tlf: <a href="tel:+4540402721">+45 40 40 27 21</a><br>
         Email: <a href="mailto:Joachim@Klicks.dk">Joachim@Klicks.dk</a></span>
       </p>
-      <p><img src="victor.png" alt="Victor Fejrskov">
+      <p>
+        <img src="victor.png" alt="Victor Fejrskov">
         <span><strong>Victor Fejrskov</strong><br>
         Salg & kontakt<br>
         Tlf: <a href="tel:+4541698247">+45 41 69 82 47</a><br>
@@ -244,7 +303,7 @@
         <input type="text" placeholder="Fulde navn" required>
         <input type="text" placeholder="Jobtitel" required>
         <input type="text" placeholder="Virksomhedsnavn" required>
-        <button type="submit" class="pulse">Indsend oplysninger</button>
+        <button type="submit">Indsend oplysninger</button>
       </form>
     </div>
   </section>
@@ -267,41 +326,19 @@
       }
     });
 
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-
     // Slideshow script
-    const slides = document.querySelectorAll(".slideshow img");
+    const slides = document.querySelectorAll(".slide-img");
     let current = 0;
 
     setInterval(() => {
-      slides[current].classList.remove("active");
-      slides[current].classList.add("left");
+      slides.forEach(slide => slide.className = 'slide-img'); // Reset all
+      slides[current].classList.add('left');
 
       current = (current + 1) % slides.length;
 
-      slides[current].classList.remove("left", "right");
-      slides[current].classList.add("active");
-
-      const next = (current + 1) % slides.length;
-      slides[next].classList.remove("left", "active");
-      slides[next].classList.add("right");
-
-      const prev = (current - 1 + slides.length) % slides.length;
-      slides[prev].classList.remove("right", "active");
-      slides[prev].classList.add("left");
-
+      slides[current].classList.add('active');
+      slides[(current + 1) % slides.length].classList.add('right');
+      slides[(current + 2) % slides.length].classList.add('left');
     }, 4000);
   </script>
 
