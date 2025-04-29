@@ -284,6 +284,18 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+    /* Animeret vækstgraf */
+.growth-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-out forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
   </style>
 </head>
 
