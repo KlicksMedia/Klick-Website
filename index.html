@@ -21,7 +21,7 @@
       line-height: 1.6;
     }
 
-    /* Topbar */
+    /* Navbar */
     nav {
       background-color: #fff;
       padding: 1rem 2rem;
@@ -73,13 +73,13 @@
       background-color: #1a3a66;
     }
 
-    /* Header */
+    /* Header med slideshow */
     header {
       background-color: #f9f9f6;
+      padding: 12rem 5vw 6rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12rem 5vw 6rem;
       flex-wrap: wrap;
     }
     .header-left {
@@ -114,235 +114,53 @@
     .header-left .btn:hover {
       background-color: #1a3a66;
     }
+
     .header-right {
       flex: 1;
       min-width: 300px;
-      text-align: center;
-    }
-    .header-right img {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    /* Sections */
-    section {
-      padding: 6rem 5vw;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: #0a2540;
-      letter-spacing: 1px;
-    }
-
-    .about, .services, .projects {
-      margin-bottom: 3rem;
-    }
-    .services ul {
-      list-style: none;
-      padding-left: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .services li {
-      background: #f2f6fa;
-      padding: 1.2rem;
-      border-radius: 0.5rem;
-    }
-
-    /* Partners / Logo Slider */
-    .partners {
-      padding: 6rem 2rem;
-      background-color: #f9f9f6;
-      overflow: hidden;
-      position: relative;
-    }
-    .logos-container {
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2rem;
-    }
-    .logos-slide {
       display: flex;
-      animation: scroll 20s linear infinite;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 500px;
     }
-    .logos-slide img {
-      height: 70px;
-      width: auto;
-      margin: 0 2rem;
-      object-fit: contain;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .partners::before,
-    .partners::after {
-      content: '';
-      position: absolute;
-      top: 0;
+    .slideshow {
+      position: relative;
       width: 200px;
+      height: 355px;
+      perspective: 1000px;
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
       height: 100%;
-      background: linear-gradient(to right, #f9f9f6, transparent);
+      object-fit: cover;
+      border-radius: 1rem;
+      transition: all 1s ease;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    .slideshow img.active {
+      opacity: 1;
+      transform: scale(1);
       z-index: 2;
     }
-    .partners::after {
-      right: 0;
-      transform: rotateZ(180deg);
+    .slideshow img.left,
+    .slideshow img.right {
+      opacity: 0.5;
+      transform: scale(0.8) translateX(-150px);
+      z-index: 1;
     }
-    .partners::before {
-      left: 0;
-    }
-
-    /* Kontakt sektion */
-    .contact-section {
-      background: #f9f9f6;
-      color: #0a2540;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 5rem 5vw;
-    }
-    .contact-info, .contact-form {
-      flex: 1;
-      min-width: 300px;
-    }
-    .contact-info h2 {
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-    .contact-info p {
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .contact-info img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #0a2540;
-    }
-    .contact-info span, .contact-info a {
-      color: #0a2540;
-      text-decoration: none;
-    }
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact-form input {
-      padding: 1rem;
-      border: 2px solid #ccc;
-      border-radius: 2rem;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      padding: 1rem;
-      background: #0a2540;
-      color: white;
-      border: none;
-      border-radius: 2rem;
-      font-size: 1rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .contact-form button:hover {
-      background: #1a3a66;
+    .slideshow img.right {
+      transform: scale(0.8) translateX(150px);
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0a2540;
-      color: #dcdcdc;
-      font-size: 0.9rem;
-    }
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .pulse {
-      transition: transform 0.3s ease;
-    }
-    .pulse:hover {
-      animation: pulseAnimation 1.5s infinite;
-    }
-    @keyframes pulseAnimation {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-   /* Animation af X-akse */
-.axis-x, .axis-y {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: drawAxis 1s forwards ease-out;
-}
-
-/* Y-akse kommer først */
-.axis-y {
-  animation-delay: 0s;
-}
-
-/* X-akse kommer bagefter */
-.axis-x {
-  animation-delay: 1s;
-}
-
-/* Animation af vækstlinjen */
-.growth-line {
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: drawGrowth 2s forwards ease-out;
-  animation-delay: 2s;
-}
-
-/* Animation af pil */
-.growth-arrow {
-  opacity: 0;
-  animation: fadeIn 0.8s forwards ease-out;
-  animation-delay: 4s;
-}
-
-/* Nøgleframes */
-@keyframes drawAxis {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes drawGrowth {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
+    /* Videre CSS kommer i næste besked... */
   </style>
 </head>
 
 <body>
-    <nav id="navbar" class="top">
+  <nav id="navbar" class="top">
     <div class="logo">
       <img src="logo.png" alt="Klicks logo">
     </div>
@@ -356,24 +174,15 @@
       <a href="#contact" class="btn pulse">Book et møde</a>
     </div>
     <div class="header-right">
-  <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-    <!-- Y-akse -->
-    <line x1="50" y1="250" x2="50" y2="50" 
-          stroke="#0a2540" stroke-width="4" class="axis-y" />
-    <!-- X-akse -->
-    <line x1="50" y1="250" x2="350" y2="250" 
-          stroke="#0a2540" stroke-width="4" class="axis-x" />
-
-    <!-- Vækstlinje -->
-    <path d="M50 250 Q 100 200 150 230 T 300 120 T 350 60"
-          stroke="#4CAF50" stroke-width="6" fill="none" class="growth-line" />
-
-    <!-- Pil -->
-    <polygon points="345,60 355,55 355,65" fill="#4CAF50" class="growth-arrow" />
-  </svg>
-</div>
+      <div class="slideshow">
+        <img src="billede1.jpg" class="active" alt="Slide 1">
+        <img src="billede2.jpg" class="right" alt="Slide 2">
+        <img src="billede3.jpg" class="left" alt="Slide 3">
+      </div>
+    </div>
   </header>
 
+  <!-- Her fortsætter sektionerne -->
   <section class="partners fade-in">
     <h2>VI ARBEJDER BLANDT ANDET MED...</h2>
     <div class="logos-container">
@@ -388,8 +197,6 @@
         <img src="logo8.png" alt="Logo 8">
         <img src="logo9.png" alt="Logo 9">
         <img src="logo10.png" alt="Logo 10">
-        <img src="logo1.png" alt="Logo 1">
-        <img src="logo2.png" alt="Logo 2">
       </div>
     </div>
   </section>
@@ -446,8 +253,21 @@
     &copy; 2025 Klicks. Alle rettigheder forbeholdes.
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // Fade-in animation på scroll
+    // Navbar scroll animation
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.remove("top");
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+        navbar.classList.add("top");
+      }
+    });
+
+    // Fade-in on scroll
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -461,17 +281,29 @@
       appearOnScroll.observe(fader);
     });
 
-    // Navbar animation ved scroll
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        navbar.classList.remove("top");
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-        navbar.classList.add("top");
-      }
-    });
+    // Slideshow script
+    const slides = document.querySelectorAll(".slideshow img");
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      slides[current].classList.add("left");
+
+      current = (current + 1) % slides.length;
+
+      slides[current].classList.remove("left", "right");
+      slides[current].classList.add("active");
+
+      const next = (current + 1) % slides.length;
+      slides[next].classList.remove("left", "active");
+      slides[next].classList.add("right");
+
+      const prev = (current - 1 + slides.length) % slides.length;
+      slides[prev].classList.remove("right", "active");
+      slides[prev].classList.add("left");
+
+    }, 4000);
   </script>
+
 </body>
 </html>
