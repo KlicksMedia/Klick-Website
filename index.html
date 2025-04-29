@@ -21,7 +21,7 @@
       line-height: 1.6;
     }
 
-    /* Topbar-animation */
+    /* Topbar */
     nav {
       background-color: #fff;
       padding: 1rem 2rem;
@@ -31,12 +31,15 @@
       position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
       z-index: 1000;
-      transition: all 0.4s ease;
+      transition: all 0.5s ease;
     }
     nav.top {
-      width: 100%;
       border-radius: 0;
+      width: 100%;
+      margin: 0;
+      transform: translateX(0);
       box-shadow: none;
     }
     nav.scrolled {
@@ -70,39 +73,58 @@
       background-color: #1a3a66;
     }
 
+    /* Header */
     header {
       background-color: #f9f9f6;
-      text-align: center;
-      padding: 10rem 2rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12rem 5vw 6rem;
+      flex-wrap: wrap;
     }
-    header h1 {
+    .header-left {
+      flex: 1;
+      min-width: 300px;
+    }
+    .header-left h1 {
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1rem;
       color: #0a2540;
+      text-align: left;
     }
-    header h2 {
+    .header-left h2 {
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 2rem;
       color: #0a2540;
+      text-align: left;
     }
-    .btn {
+    .header-left .btn {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background-color: white;
-      color: #0a2540;
+      background-color: #0a2540;
+      color: white;
       text-decoration: none;
       border-radius: 2rem;
       font-weight: 800;
       font-size: 1.1rem;
-      margin-top: 1rem;
       transition: background 0.3s;
     }
-    .btn:hover {
-      background-color: #e6e6e6;
+    .header-left .btn:hover {
+      background-color: #1a3a66;
+    }
+    .header-right {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    .header-right img {
+      width: 100%;
+      max-width: 400px;
     }
 
+    /* Sections */
     section {
       padding: 6rem 5vw;
     }
@@ -117,7 +139,6 @@
     .about, .services, .projects {
       margin-bottom: 3rem;
     }
-
     .services ul {
       list-style: none;
       padding-left: 0;
@@ -125,13 +146,13 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
     }
-
     .services li {
       background: #f2f6fa;
       padding: 1.2rem;
       border-radius: 0.5rem;
     }
 
+    /* Partners / Logo Slider */
     .partners {
       padding: 6rem 2rem;
       background-color: #f9f9f6;
@@ -175,6 +196,7 @@
       left: 0;
     }
 
+    /* Kontakt sektion */
     .contact-section {
       background: #f9f9f6;
       color: #0a2540;
@@ -186,6 +208,10 @@
     .contact-info, .contact-form {
       flex: 1;
       min-width: 300px;
+    }
+    .contact-info h2 {
+      text-align: left;
+      margin-bottom: 2rem;
     }
     .contact-info p {
       margin-bottom: 1.5rem;
@@ -204,7 +230,6 @@
       color: #0a2540;
       text-decoration: none;
     }
-
     .contact-form form {
       display: flex;
       flex-direction: column;
@@ -218,8 +243,8 @@
     }
     .contact-form button {
       padding: 1rem;
-      background: white;
-      color: #0a2540;
+      background: #0a2540;
+      color: white;
       border: none;
       border-radius: 2rem;
       font-size: 1rem;
@@ -228,7 +253,7 @@
       transition: background 0.3s;
     }
     .contact-form button:hover {
-      background: #e6e6e6;
+      background: #1a3a66;
     }
 
     footer {
@@ -238,7 +263,7 @@
       color: #dcdcdc;
       font-size: 0.9rem;
     }
-
+    /* Animations */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -248,7 +273,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
     .pulse {
       transition: transform 0.3s ease;
     }
@@ -264,7 +288,7 @@
 </head>
 
 <body>
-  <nav id="navbar" class="top">
+    <nav id="navbar" class="top">
     <div class="logo">
       <img src="logo.png" alt="Klicks logo">
     </div>
@@ -272,9 +296,14 @@
   </nav>
 
   <header>
-    <h1>Skab stærkere kampagner</h1>
-    <h2>Strategisk & kreativ marketing – leveret af Klicks</h2>
-    <a href="#contact" class="btn pulse">Book et møde</a>
+    <div class="header-left">
+      <h1>Skab stærkere kampagner</h1>
+      <h2>Strategisk & kreativ marketing – leveret af Klicks</h2>
+      <a href="#contact" class="btn pulse">Book et møde</a>
+    </div>
+    <div class="header-right">
+      <img src="growth-graph.png" alt="Graf med vækst">
+    </div>
   </header>
 
   <section class="partners fade-in">
@@ -333,13 +362,14 @@
         Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></span>
       </p>
     </div>
+
     <div class="contact-form">
       <h2>Indsend oplysninger</h2>
       <form>
         <input type="text" placeholder="Fulde navn" required>
         <input type="text" placeholder="Jobtitel" required>
         <input type="text" placeholder="Virksomhedsnavn" required>
-        <button type="submit">Indsend oplysninger</button>
+        <button type="submit" class="pulse">Indsend oplysninger</button>
       </form>
     </div>
   </section>
@@ -349,7 +379,7 @@
   </footer>
 
   <script>
-    // Fade-in on scroll
+    // Fade-in animation på scroll
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -363,7 +393,7 @@
       appearOnScroll.observe(fader);
     });
 
-    // Scroll topbar transform
+    // Navbar animation ved scroll
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {
       if (window.scrollY > 10) {
