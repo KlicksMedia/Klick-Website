@@ -20,21 +20,32 @@
       color: #111;
       line-height: 1.6;
     }
+
+    /* Topbar-animation */
     nav {
-      width: 90%;
-      margin: 0 auto;
       background-color: #fff;
       padding: 1rem 2rem;
-      border-radius: 3rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: fixed;
-      top: 1rem;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+    nav.top {
+      width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    nav.scrolled {
+      width: 90%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1000;
+      margin-top: 1rem;
+      border-radius: 3rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
     nav .logo {
       display: flex;
@@ -58,26 +69,23 @@
     .nav-btn:hover {
       background-color: #1a3a66;
     }
+
     header {
       background-color: #f9f9f6;
       text-align: center;
       padding: 10rem 2rem 6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
     header h1 {
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1rem;
-      color: #0a2540; /* navy */
+      color: #0a2540;
     }
     header h2 {
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 2rem;
-      color: #0a2540; /* navy */
+      color: #0a2540;
     }
     .btn {
       display: inline-block;
@@ -94,6 +102,7 @@
     .btn:hover {
       background-color: #e6e6e6;
     }
+
     section {
       padding: 6rem 5vw;
     }
@@ -104,9 +113,11 @@
       color: #0a2540;
       letter-spacing: 1px;
     }
+
     .about, .services, .projects {
       margin-bottom: 3rem;
     }
+
     .services ul {
       list-style: none;
       padding-left: 0;
@@ -114,11 +125,13 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
     }
+
     .services li {
       background: #f2f6fa;
       padding: 1.2rem;
       border-radius: 0.5rem;
     }
+
     .partners {
       padding: 6rem 2rem;
       background-color: #f9f9f6;
@@ -128,7 +141,6 @@
     .logos-container {
       width: 100%;
       overflow: hidden;
-      position: relative;
       margin-top: 2rem;
     }
     .logos-slide {
@@ -162,6 +174,7 @@
     .partners::before {
       left: 0;
     }
+
     .contact-section {
       background: #f9f9f6;
       color: #0a2540;
@@ -187,13 +200,11 @@
       object-fit: cover;
       border: 2px solid #0a2540;
     }
-    .contact-info span {
-      color: #0a2540;
-    }
-    .contact-info a {
+    .contact-info span, .contact-info a {
       color: #0a2540;
       text-decoration: none;
     }
+
     .contact-form form {
       display: flex;
       flex-direction: column;
@@ -219,6 +230,7 @@
     .contact-form button:hover {
       background: #e6e6e6;
     }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -226,6 +238,7 @@
       color: #dcdcdc;
       font-size: 0.9rem;
     }
+
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -235,6 +248,7 @@
       opacity: 1;
       transform: translateY(0);
     }
+
     .pulse {
       transition: transform 0.3s ease;
     }
@@ -250,7 +264,7 @@
 </head>
 
 <body>
-  <nav>
+  <nav id="navbar" class="top">
     <div class="logo">
       <img src="logo.png" alt="Klicks logo">
     </div>
@@ -319,7 +333,6 @@
         Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></span>
       </p>
     </div>
-
     <div class="contact-form">
       <h2>Indsend oplysninger</h2>
       <form>
@@ -336,6 +349,7 @@
   </footer>
 
   <script>
+    // Fade-in on scroll
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -347,6 +361,18 @@
     }, appearOptions);
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
+    });
+
+    // Scroll topbar transform
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.remove("top");
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+        navbar.classList.add("top");
+      }
     });
   </script>
 </body>
