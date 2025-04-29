@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Klicks | Strategisk Marketing</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <style>
@@ -16,7 +16,7 @@
       font-family: 'Montserrat', sans-serif;
     }
     body {
-      background-color: #fdfdfd;
+      background-color: #f9f9f6;
       color: #111;
       line-height: 1.6;
     }
@@ -59,29 +59,25 @@
       background-color: #1a3a66;
     }
     header {
-      background-image: url('header1.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 18rem 2rem 8rem;
+      background-color: #f9f9f6;
       text-align: center;
+      padding: 10rem 2rem 6rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
     }
     header h1 {
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1rem;
-      color: white;
+      color: #0a2540; /* navy */
     }
     header h2 {
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 2rem;
-      color: #e0e0e0;
+      color: #0a2540; /* navy */
     }
     .btn {
       display: inline-block;
@@ -123,27 +119,24 @@
       padding: 1.2rem;
       border-radius: 0.5rem;
     }
-
-    /* Partners sektion */
     .partners {
       padding: 6rem 2rem;
-      background-color: #fff;
+      background-color: #f9f9f6;
       overflow: hidden;
       position: relative;
     }
     .logos-container {
-      position: relative;
       width: 100%;
       overflow: hidden;
+      position: relative;
       margin-top: 2rem;
     }
     .logos-slide {
       display: flex;
-      width: max-content;
       animation: scroll 20s linear infinite;
     }
     .logos-slide img {
-      height: 70px; /* 👈 Mindre logoer */
+      height: 70px;
       width: auto;
       margin: 0 2rem;
       object-fit: contain;
@@ -157,9 +150,9 @@
       content: '';
       position: absolute;
       top: 0;
-      width: 200px; /* 👈 Større fadeområde */
+      width: 200px;
       height: 100%;
-      background: linear-gradient(to right, #fff, transparent);
+      background: linear-gradient(to right, #f9f9f6, transparent);
       z-index: 2;
     }
     .partners::after {
@@ -169,10 +162,9 @@
     .partners::before {
       left: 0;
     }
-
     .contact-section {
-      background: #0a2540;
-      color: white;
+      background: #f9f9f6;
+      color: #0a2540;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
@@ -193,7 +185,14 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #fff;
+      border: 2px solid #0a2540;
+    }
+    .contact-info span {
+      color: #0a2540;
+    }
+    .contact-info a {
+      color: #0a2540;
+      text-decoration: none;
     }
     .contact-form form {
       display: flex;
@@ -202,7 +201,7 @@
     }
     .contact-form input {
       padding: 1rem;
-      border: none;
+      border: 2px solid #ccc;
       border-radius: 2rem;
       font-size: 1rem;
     }
@@ -227,8 +226,6 @@
       color: #dcdcdc;
       font-size: 0.9rem;
     }
-
-    /* Fade-in animation */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -238,8 +235,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Pulse animation kun ved hover */
     .pulse {
       transition: transform 0.3s ease;
     }
@@ -282,10 +277,8 @@
         <img src="logo8.png" alt="Logo 8">
         <img src="logo9.png" alt="Logo 9">
         <img src="logo10.png" alt="Logo 10">
-        <!-- gentag for perfekt loop -->
         <img src="logo1.png" alt="Logo 1">
         <img src="logo2.png" alt="Logo 2">
-        <img src="logo3.png" alt="Logo 3">
       </div>
     </div>
   </section>
@@ -316,16 +309,17 @@
       <p><img src="joachim.png" alt="Joachim Bisgaard">
         <span><strong>Joachim Bisgaard</strong><br>
         Marketingkonsulent<br>
-        Tlf: <a href="tel:+4540402721" style="color:white;">+45 40 40 27 21</a><br>
-        Email: <a href="mailto:Joachim@Klicks.dk" style="color:white;">Joachim@Klicks.dk</a></span>
+        Tlf: <a href="tel:+4540402721">+45 40 40 27 21</a><br>
+        Email: <a href="mailto:Joachim@Klicks.dk">Joachim@Klicks.dk</a></span>
       </p>
       <p><img src="victor.png" alt="Victor Fejrskov">
         <span><strong>Victor Fejrskov</strong><br>
         Salg & kontakt<br>
-        Tlf: <a href="tel:+4541698247" style="color:white;">+45 41 69 82 47</a><br>
-        Email: <a href="mailto:Victor@Klicks.dk" style="color:white;">Victor@Klicks.dk</a></span>
+        Tlf: <a href="tel:+4541698247">+45 41 69 82 47</a><br>
+        Email: <a href="mailto:Victor@Klicks.dk">Victor@Klicks.dk</a></span>
       </p>
     </div>
+
     <div class="contact-form">
       <h2>Indsend oplysninger</h2>
       <form>
